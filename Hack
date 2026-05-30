@@ -1,2 +1,18 @@
-# Dinoswords.gg-hack
-You will have all weapons and can't die.
+```javascript
+var original = Runner.prototype.gameOver;
+Runner.prototype.gameOver = function() {};
+
+Object.keys(weaponConfigsById).forEach(id => {
+    let config = weaponConfigsById[id];
+    let weapon = new Weapon(config);
+
+    if (weapon.maxUses) weapon.uses = weapon.maxUses;
+    if (weapon.maxTime) weapon.timeUsed = 0;
+
+    weapon.unlimited = true;
+    weaponManager.weapons[id] = weapon;
+});
+
+weaponManager.updateCallback && weaponManager.updateCallback();
+
+console.log("No death + all weapons unlocked!");```
