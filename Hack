@@ -1,4 +1,4 @@
-```javascript
+
 var original = Runner.prototype.gameOver;
 Runner.prototype.gameOver = function() {};
 
@@ -15,4 +15,4 @@ Object.keys(weaponConfigsById).forEach(id => {
 
 weaponManager.updateCallback && weaponManager.updateCallback();
 
-console.log("No death + all weapons unlocked!");```
+console.log("No death + all weapons unlocked!");
